@@ -113,16 +113,15 @@ const BlogCreator = () => {
           </motion.button>
 
           {blogContent && (
-            <motion.div 
-              className="mt-4 p-3 border rounded shadow-md bg-white text-gray-900" 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              transition={{ duration: 0.3 }}
-              data-aos="zoom-in" // Add AOS animation
-            >
-              <strong>Blog Content:</strong> <br />
-              <p>{blogContent}</p>
-            </motion.div>
+           <motion.textarea
+           value={blogContent}
+           onChange={(e) => setBlogContent(e.target.value)}
+           placeholder="Enter a short blog idea..."
+           className="w-full p-2 border rounded outline-none text-gray-900 h-40 overflow-auto resize-none"
+           whileFocus={{ scale: 1.02 }}
+           data-aos="fade-right" 
+         />
+         
           )}
 
           {seoResult && (
