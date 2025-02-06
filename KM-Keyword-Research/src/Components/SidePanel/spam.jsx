@@ -33,10 +33,22 @@ const SpamDetection = () => {
       const data = await response.json();
       
       if (response.ok) {
+        const analysisResult = data.analysisResult;
+
+        // Parsing the analysis result to extract spam score and keywords
+        const spamKeywordsMatch = analysisResult.match(/Spammy Keywords:\s*"([^"]+)"/);
+        const spamScoreMatch = analysisResult.match(/Spam Score:\s*([^ ]+)/);
+
+        const spamKeywords = spamKeywordsMatch ? spamKeywordsMatch[1] : 'None';
+        const spamScore = spamScoreMatch ? spamScoreMatch[1] : 'N/A';
+        const isSpam = spamScore === 'High'; // Consider it spam if score is High (you can modify based on your criteria)
+
         setResult({
           text: searchTerm,
-          score: 'Low to Moderate', // You can extract the score from `data.analysisResult` if available
-          isSpam: data.analysisResult.includes("spam")
+          score: `Spam Score: ${spamScore}`,
+          isSpam: isSpam,
+          keywords: spamKeywords,
+          explanation: analysisResult.split('\n\n').slice(1).join('\n\n') // The explanation part
         });
       } else {
         setResult({
@@ -103,8 +115,10 @@ const SpamDetection = () => {
                 transition={{ duration: 0.3 }}
               >
                 <strong>Result:</strong> {result.text} <br />
-                <strong>Spam Score:</strong> {result.score} <br />
-                <strong>Status:</strong> {result.isSpam ? '⚠️ Spam Detected' : '✅ Safe'}
+                <strong>Spammy Keywords:</strong> {result.keywords} <br />
+                <strong>{result.score}</strong> <br />
+                <strong>Status:</strong> {result.isSpam ? '⚠️ Spam Detected' : '✅ Safe'} <br />
+                <strong>Explanation:</strong> <p>{result.explanation}</p>
               </motion.div>
             )}
           </motion.div>
