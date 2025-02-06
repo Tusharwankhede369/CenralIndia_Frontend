@@ -19,7 +19,7 @@ const SpamDetection = () => {
   // Make API request for Spam Check
   const checkSpam = async () => {
     if (!searchTerm) {
-      setResult({ text: 'Please enter text.', score: null, isSpam: null });
+      setResult({ explanation: 'Please enter text.' });
       return;
     }
 
@@ -31,38 +31,23 @@ const SpamDetection = () => {
       });
 
       const data = await response.json();
-      
+      console.log('API Response:', data);  // Log the API response to inspect its structure
+
       if (response.ok) {
-        const analysisResult = data.analysisResult;
-
-        // Parsing the analysis result to extract spam score and keywords
-        const spamKeywordsMatch = analysisResult.match(/Spammy Keywords:\s*"([^"]+)"/);
-        const spamScoreMatch = analysisResult.match(/Spam Score:\s*([^ ]+)/);
-
-        const spamKeywords = spamKeywordsMatch ? spamKeywordsMatch[1] : 'None';
-        const spamScore = spamScoreMatch ? spamScoreMatch[1] : 'N/A';
-        const isSpam = spamScore === 'High'; // Consider it spam if score is High (you can modify based on your criteria)
+        const { analysisResult } = data; // Assuming analysisResult is returned in the response
 
         setResult({
-          text: searchTerm,
-          score: `Spam Score: ${spamScore}`,
-          isSpam: isSpam,
-          keywords: spamKeywords,
-          explanation: analysisResult.split('\n\n').slice(1).join('\n\n') // The explanation part
+          explanation: analysisResult || 'No detailed explanation available'
         });
       } else {
         setResult({
-          text: 'Error: Unable to process the text.',
-          score: null,
-          isSpam: false
+          explanation: 'Error: Unable to process the text.'
         });
       }
     } catch (error) {
       console.error('Error detecting spam:', error);
       setResult({
-        text: 'Error: Unable to process the text.',
-        score: null,
-        isSpam: false
+        explanation: 'Error: Unable to process the text.'
       });
     }
   };
@@ -109,16 +94,13 @@ const SpamDetection = () => {
 
             {result && (
               <motion.div
-                className={`mt-4 p-3 border rounded shadow-md text-gray-900 ${result.isSpam ? 'bg-red-500 text-white' : 'bg-white'}`}
+                className="mt-4 p-3 border rounded shadow-md text-gray-900 bg-white"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <strong>Result:</strong> {result.text} <br />
-                <strong>Spammy Keywords:</strong> {result.keywords} <br />
-                <strong>{result.score}</strong> <br />
-                <strong>Status:</strong> {result.isSpam ? '⚠️ Spam Detected' : '✅ Safe'} <br />
-                <strong>Explanation:</strong> <p>{result.explanation}</p>
+                <strong>Explanation:</strong>
+                <p>{result.explanation}</p>
               </motion.div>
             )}
           </motion.div>
