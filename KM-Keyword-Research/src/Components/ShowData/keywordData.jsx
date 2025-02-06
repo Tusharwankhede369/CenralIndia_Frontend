@@ -56,7 +56,7 @@ const KeywordData = () => {
         </div>
       ) : (
         <>
-        <div className="grid bg-gradient-to-r shadow-md from-orange-500 to-blue-600 p-5 rounded-lg text-white mx-auto w-full max-w-full">
+        <div className="grid  self-center bg-gradient-to-r shadow-md from-orange-500 to-blue-600 p-5 rounded-lg text-white mx-auto w-full max-w-full">
           <div className="p-9 sm:pl-4 md:pl-10">
             <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl mb-4 font-sans font-extrabold">
               Why do you need SEO?

@@ -13,6 +13,7 @@ import SignupPage from "./Components/Login&Registation/signupForm.jsx";
 import Layout from "./Components/Layout.jsx";
 import Chatbot from "./aibot.jsx"
 import Spam from "./Components/SidePanel/spam.jsx";
+import Empty from "./Components/SidePanel/Empty.jsx";
 // Remove the duplicate Layout definition
 // const Layout = ({ children }) => {
 //   const location = useLocation();
@@ -42,6 +43,14 @@ const AppContent = () => {
           <Layout className="w-full">
             <Spam />
           </Layout>}/>
+          <Route
+          path="/empty"
+          element={
+            <Layout className="w-full">
+              <Empty />
+            </Layout>}/>
+        
+          
      
       {/* <Route path="/" element={<LandingPage />} /> */}
       <Route
