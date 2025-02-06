@@ -14,6 +14,7 @@ import Layout from "./Components/Layout.jsx";
 import Chatbot from "./aibot.jsx"
 import Spam from "./Components/SidePanel/spam.jsx";
 import Empty from "./Components/SidePanel/Empty.jsx";
+import ContentOpt from "./Components/SidePanel/Contentopt.jsx";
 // Remove the duplicate Layout definition
 // const Layout = ({ children }) => {
 //   const location = useLocation();
@@ -48,6 +49,13 @@ const AppContent = () => {
           element={
             <Layout className="w-full">
               <Empty />
+            </Layout>}/>
+
+            <Route
+          path="/cont-opt"
+          element={
+            <Layout className="w-full">
+              <ContentOpt />
             </Layout>}/>
         
           
