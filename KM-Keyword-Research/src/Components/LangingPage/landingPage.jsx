@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios"; // Import axios
 
 const countries = [
   { code: "us", name: "United States" },
@@ -32,24 +32,24 @@ const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [keywordResults, setKeywordResults] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("in");
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [loading, setLoading] = useState(false);
 
   const handleFindKeyword = async () => {
     if (keyword.trim() === "") return;
-  
+
     setLoading(true);
     try {
       const response = await axios.get("http://localhost:5000/api/scraper/scrape", {
         params: {
           query: keyword,
-          location_code: selectedCountry || "us",
+          location_code: selectedCountry || "in",
           language_code: selectedLanguage || "en",
           limit: 200,
         },
       });
-  
+
       setKeywordResults(response.data.keywords || []);
       setShowPopup(true);
     } catch (error) {
@@ -59,14 +59,13 @@ const LandingPage = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="container mx-auto w-full h-screen bg-[#edf3e8] flex flex-col items-center min-w-[320px] mb-20">
       <div className="mt-32">
         <h1 className="text-center text-5xl font-bold text-gray-700">Keyword Generator</h1>
         <h4 className="text-center text-gray-500 mt-4">Find thousands of keywords here</h4>
-     
+
         <div className="flex text-gray-700 text-2xl flex-wrap justify-center my-6">
           {["Google", "Bing", "Yahoo", "YouTube", "Yandex"].map((tab) => (
             <h1
@@ -129,9 +128,20 @@ const LandingPage = () => {
 
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded shadow-lg">
+          <div className="bg-white p-4 rounded shadow-lg w-[500px]">
             <h2 className="text-lg font-bold text-[#8193a6]">Keyword Results</h2>
-            <p>Your keyword results for "{keyword}" will be displayed here.</p>
+            <p>Your keyword results for "{keyword}" are:</p>
+            <ul className="mt-2 max-h-[300px] overflow-y-auto">
+              {keywordResults.length > 0 ? (
+                keywordResults.map((kw, index) => (
+                  <li key={index} className="text-gray-700">
+                    - {kw}
+                  </li>
+                ))
+              ) : (
+                <p className="text-red-500">No results found.</p>
+              )}
+            </ul>
             <button
               onClick={() => setShowPopup(false)}
               className="mt-4 p-2 bg-[#0074b1] text-white rounded-md"
@@ -141,9 +151,6 @@ const LandingPage = () => {
           </div>
         </div>
       )}
-      
-                
-              
     </div>
   );
 };
