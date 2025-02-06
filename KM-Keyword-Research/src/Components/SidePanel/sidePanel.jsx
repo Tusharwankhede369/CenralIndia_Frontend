@@ -106,13 +106,13 @@ const Sidebar = () => {
         {[
           { name: "Spam Detection ", path: "/spam-detection" },
           { name: "Content Optimization", path: "/cont-opt" },
-          { name: "Blog Audit", path: "/audit" },
+          { name: "Audit", path: "/audit" },
 
-          { name: "Keyword Research", path: "/keyword-research" },
-          { name: "On page & Tech SEO", path: "/on-page-tech-seo" },
-          { name: "Local", path: "/local" },
-          { name: "Advertising", path: "/advertising" },
-          { name: "Social Media", path: "/social-media" },
+          { name: "Blog", path: "/Blog" },
+          { name: "SEO keywords", path: "/" },
+        
+          { name: "Feedback", path: "/Contact" }
+          // { name: "Social Media", path: "/social-media" },
         ].map((option) => (
           <Link to={option.path} key={option.name}> {/* Add Link component */}
             <div

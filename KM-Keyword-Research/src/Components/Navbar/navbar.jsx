@@ -52,9 +52,9 @@ const Navbar = () => {
               <li className="md:px-4 md:py-2">
                 <NavLink to="/Blog" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Blog</NavLink>
               </li>
-              <li className="md:px-4 md:py-2">
+              {/* <li className="md:px-4 md:py-2">
                 <NavLink to="/empty" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Forum</NavLink>
-              </li>
+              </li> */}
               <li className="md:px-4 md:py-2">
                 <NavLink to="/contact" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Contact</NavLink>
               </li>
