@@ -38,7 +38,7 @@ const SpamDetection = () => {
   style={{ width: '900px', minHeight: '100vh', padding: '0 50px' }}
   className="relative flex items-center justify-center overflow-hidden">
       <Helmet>
-        <title>Spam Detection - Optimize SEO & Keywords</title>
+        <title>Spam Detection </title>
         <meta name="description" content="Check your text for spam and optimize SEO with keyword analysis." />
         <meta name="keywords" content="Spam Detection, SEO Optimization, Keyword Analysis, Content Filtering" />
       </Helmet>
