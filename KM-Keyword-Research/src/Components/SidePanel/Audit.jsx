@@ -35,7 +35,7 @@ const AuditPage = () => {
     setResult({ text: url, audit: auditResults });
 
     try {
-      const response = await fetch('http://localhost:5000/api/gemini/seo-suggestions', {
+      const response = await fetch('https://keyword-research3.onrender.com/api/gemini/seo-suggestions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ blogUrl: url }),
