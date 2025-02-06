@@ -91,7 +91,7 @@ const Sidebar = () => {
         </button>
       </div>
       <div
-        className={`bg-[#12153D] text-white p-6 w-72 mt-4 rounded-lg fixed md:relative transition-transform duration-300 ${
+        className={`bg-[#abafe1] text-white p-6 w-72 mt-4 rounded-lg fixed md:relative transition-transform duration-300 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:ml-6 md:mr-4`}
       >
@@ -117,7 +117,7 @@ const Sidebar = () => {
         ].map((option) => (
           <Link to={option.path} key={option.name}> {/* Add Link component */}
             <div
-              className={`mb-4 p-3 text-gray-500 cursor-pointer rounded ${
+              className={`mb-4 p-3 text-white cursor-pointer rounded ${
                 selectedOption === option.name
                   ? "bg-orange-700 text-white rounded-lg"
                   : ""
