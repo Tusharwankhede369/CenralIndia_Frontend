@@ -38,7 +38,7 @@ const SpamDetection = () => {
   style={{ width: '900px', minHeight: '100vh', padding: '0 50px' }}
   className="relative flex items-center justify-center bg-white overflow-hidden">
       <Helmet>
-        <title>Spam Detection - Optimize SEO & Keywords</title>
+        <title>Spam Detection </title>
         <meta name="description" content="Check your text for spam and optimize SEO with keyword analysis." />
         <meta name="keywords" content="Spam Detection, SEO Optimization, Keyword Analysis, Content Filtering" />
       </Helmet>
@@ -56,7 +56,19 @@ const SpamDetection = () => {
           transition={{ duration: 0.5 }}
           className="relative z-10 w-full max-w-6xl mx-4 shadow-lg p-10 rounded-lg border border-gray-500 bg-gradient-to-r from-blue-500 to-purple-600 text-white"
         >
-          <h1 className="text-2xl font-bold text-center mb-4">Spam Detection & SEO Optimization</h1>
+  <motion.h1
+  className="text-3xl font-bold text-center mb-4"
+  animate={{ 
+    opacity: [1, 0.7, 1], 
+    color: ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"] // Rainbow Colors
+  }}
+  transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }} // Smooth animation loop
+>
+  Spam Detection
+</motion.h1>
+
+
+
           <motion.input
             type="text"
             value={searchTerm}
