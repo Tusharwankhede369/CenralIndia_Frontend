@@ -106,7 +106,7 @@ const Sidebar = () => {
         {[
           { name: "Spam Detection ", path: "/spam-detection" },
           { name: "Content Optimization", path: "/cont-opt" },
-          { name: "Audit", path: "/audit" },
+          { name: "Blog Audit", path: "/audit" },
 
           { name: "Keyword Research", path: "/keyword-research" },
           { name: "On page & Tech SEO", path: "/on-page-tech-seo" },

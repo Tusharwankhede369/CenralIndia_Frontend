@@ -6,6 +6,7 @@ import Lottie from 'lottie-react';
 const AuditPage = () => {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState(null);
+  const [seoSuggestions, setSeoSuggestions] = useState('');
   const [animationData, setAnimationData] = useState(null);
 
   // Load Lottie JSON dynamically from public folder
@@ -16,8 +17,8 @@ const AuditPage = () => {
       .catch((error) => console.error('Error loading Lottie JSON:', error));
   }, []);
 
-  // Simulated Audit Function (Replace with Backend Call)
-  const performAudit = () => {
+  // Perform SEO Audit & Fetch SEO Suggestions
+  const performAudit = async () => {
     if (!url) {
       setResult({ text: 'Please enter a valid URL.', audit: null });
       return;
@@ -32,13 +33,32 @@ const AuditPage = () => {
     };
 
     setResult({ text: url, audit: auditResults });
+
+    try {
+      const response = await fetch('https://keyword-research3.onrender.com/api/gemini/seo-suggestions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ blogUrl: url }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSeoSuggestions(data.seoSuggestions);
+      } else {
+        setSeoSuggestions('No SEO suggestions available.');
+      }
+    } catch (error) {
+      console.error('Error fetching SEO suggestions:', error);
+      setSeoSuggestions('Error fetching SEO suggestions.');
+    }
   };
 
   return (
     <>
       <div 
         style={{ width: '900px', minHeight: '100vh', padding: '0 50px' }}
-        className="relative flex items-center justify-center overflow-hidden">
+        className="relative flex items-center justify-center overflow-hidden scroll-container">
         <Helmet>
           <title>Audit Page</title>
           <meta name="description" content="Analyze website performance and SEO with our audit tool." />
@@ -96,6 +116,18 @@ const AuditPage = () => {
                 )}
               </motion.div>
             )}
+
+            {seoSuggestions && (
+              <motion.div
+                className="mt-4 p-3 border rounded shadow-md bg-white text-gray-900"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <strong>SEO Suggestions:</strong> <br />
+                <pre>{seoSuggestions}</pre>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </div>
@@ -104,3 +136,4 @@ const AuditPage = () => {
 };
 
 export default AuditPage;
+ 
