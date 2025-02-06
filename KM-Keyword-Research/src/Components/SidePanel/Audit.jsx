@@ -117,17 +117,18 @@ const AuditPage = () => {
               </motion.div>
             )}
 
-            {seoSuggestions && (
-              <motion.div
-                className="mt-4 p-3 border rounded shadow-md bg-white text-gray-900"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <strong>SEO Suggestions:</strong> <br />
-                <pre>{seoSuggestions}</pre>
-              </motion.div>
-            )}
+{seoSuggestions && (
+  <motion.div
+    className="mt-4 p-3 border rounded shadow-md bg-white text-gray-900 max-h-40 overflow-y-auto"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+  >
+    <strong>SEO Suggestions:</strong> <br />
+    <pre className="whitespace-pre-wrap break-words">{seoSuggestions}</pre>
+  </motion.div>
+)}
+
           </motion.div>
         </div>
       </div>
