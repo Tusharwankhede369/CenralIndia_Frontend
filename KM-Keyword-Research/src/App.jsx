@@ -67,7 +67,7 @@ const AppContent = () => {
       <Route
         path="/contact"
         element={
-          <Layout className="w-full" LinkofImg="https://lottie.host/9e9fb678-0d62-4fa2-96a0-4f93e6f47e8c/XRezMD1ZeM.lottie">
+          <Layout className="w-full" LinkofImg="https://lottie.host/f5f33659-c497-493d-ae83-43837bcf9e02/1JpkTt1fEr.lottie">
             <ContactForm />
 
           </Layout>} />
