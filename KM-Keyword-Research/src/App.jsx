@@ -16,6 +16,7 @@ import Spam from "./Components/SidePanel/spam.jsx";
 import Empty from "./Components/SidePanel/Empty.jsx";
 import ContactForm from "./Components/SidePanel/Contact.jsx";  
 import ContentOpt from "./Components/SidePanel/Contentopt.jsx";
+import AuditPage from "./Components/SidePanel/Audit.jsx";
 // Remove the duplicate Layout definition
 // const Layout = ({ children }) => {
 //   const location = useLocation();
@@ -66,6 +67,12 @@ const AppContent = () => {
           
             </Layout>}/>  
           
+            <Route
+        path="/Audit"
+        element={
+          <Layout className="w-full">
+            <AuditPage />
+          </Layout>}/>
      
       {/* <Route path="/" element={<LandingPage />} /> */}
       <Route
