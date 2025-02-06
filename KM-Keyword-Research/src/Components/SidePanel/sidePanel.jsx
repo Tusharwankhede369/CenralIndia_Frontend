@@ -34,7 +34,7 @@
 //             <span className="mb-4 mr-3"> New User</span>
 //           </div>
 //         </div>
-        
+
 //         {[
 //           { name: "Keyword volume", path: "/keyword-volume" },
 //           { name: "Competetive Research", path: "/competetive-research" },
@@ -91,9 +91,8 @@ const Sidebar = () => {
         </button>
       </div>
       <div
-        className={`bg-[#abafe1] text-white p-6 w-72 mt-4 rounded-lg fixed md:relative transition-transform duration-300 ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:ml-6 md:mr-4`}
+        className={`bg-[#abafe1] text-white p-6 w-72 mt-4 rounded-lg fixed md:relative transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 md:ml-6 md:mr-4`}
       >
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -103,11 +102,10 @@ const Sidebar = () => {
             <span className="mb-4 mr-3"> New User</span>
           </div>
         </div>
-        
-        {[
-                    { name: "Spam Detection ", path: "/spam-detection" },
 
-          { name: "Competetive Research", path: "/competetive-research" },
+        {[
+          { name: "Spam Detection ", path: "/spam-detection" },
+          { name: "Content Optimization", path: "/competetive-research" },
           { name: "Keyword Research", path: "/keyword-research" },
           { name: "Keyword Difficulty", path: "/keyword-difficulty" },
           { name: "On page & Tech SEO", path: "/on-page-tech-seo" },
@@ -117,11 +115,10 @@ const Sidebar = () => {
         ].map((option) => (
           <Link to={option.path} key={option.name}> {/* Add Link component */}
             <div
-              className={`mb-4 p-3 text-white cursor-pointer rounded ${
-                selectedOption === option.name
+              className={`mb-4 p-3 text-white cursor-pointer rounded ${selectedOption === option.name
                   ? "bg-orange-700 text-white rounded-lg"
                   : ""
-              }`}
+                }`}
               onClick={() => handleOptionClick(option.name)}
             >
               {option.name}

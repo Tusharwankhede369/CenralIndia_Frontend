@@ -36,14 +36,14 @@ const SpamDetection = () => {
     <>
     <div 
   style={{ width: '900px', minHeight: '100vh', padding: '0 50px' }}
-  className="relative flex items-center justify-center bg-white overflow-hidden">
+  className="relative flex items-center justify-center overflow-hidden">
       <Helmet>
         <title>Spam Detection - Optimize SEO & Keywords</title>
         <meta name="description" content="Check your text for spam and optimize SEO with keyword analysis." />
         <meta name="keywords" content="Spam Detection, SEO Optimization, Keyword Analysis, Content Filtering" />
       </Helmet>
 
-      <div className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden px-10">
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-10">
         {/* Lottie Animation Background */}
         <div className="absolute inset-0 z-0">
           {animationData && <Lottie animationData={animationData} loop={true} className="w-full h-full" />}
@@ -54,9 +54,9 @@ const SpamDetection = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative z-10 w-full max-w-6xl mx-4 shadow-lg p-10 rounded-lg border border-gray-500 bg-gradient-to-r from-blue-500 to-purple-600 text-white"
+          className="relative z-10 w-full max-w-6xl mx-4 shadow-lg p-10 rounded-lg border  bg-gradient-to-r from-blue-200 to-purple-300 text-white"
         >
-          <h1 className="text-2xl font-bold text-center mb-4">Spam Detection & SEO Optimization</h1>
+          <h1 className="text-2xl font-bold text-center mb-4">Spam Detection</h1>
           <motion.input
             type="text"
             value={searchTerm}
