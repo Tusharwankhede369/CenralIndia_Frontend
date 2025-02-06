@@ -92,7 +92,7 @@ const BlogCreator = () => {
           className="relative z-10 w-full max-w-6xl mx-4 shadow-lg p-10 rounded-lg border bg-gradient-to-r from-blue-200 to-purple-300 text-white"
           data-aos="fade-up" // Add AOS animation
         >
-          <h1 className="text-2xl font-bold text-center mb-4" data-aos="fade-down">Create Your Blog</h1>
+          <h1 className="text-2xl font-bold text-center mb-4" data-aos="fade-down">Create Your Blog Using Ai Power</h1>
           <motion.textarea
             value={blogContent}
             onChange={(e) => setBlogContent(e.target.value)}
