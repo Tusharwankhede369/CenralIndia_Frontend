@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
- 
+
 } from "react-router-dom";
 
 import KeywordData from "./Components/ShowData/keywordData.jsx";
@@ -14,9 +14,10 @@ import Layout from "./Components/Layout.jsx";
 import Chatbot from "./aibot.jsx"
 import Spam from "./Components/SidePanel/spam.jsx";
 import Empty from "./Components/SidePanel/Empty.jsx";
-import ContactForm from "./Components/SidePanel/Contact.jsx";  
+import ContactForm from "./Components/SidePanel/Contact.jsx";
 import ContentOpt from "./Components/SidePanel/Contentopt.jsx";
 import AuditPage from "./Components/SidePanel/Audit.jsx";
+import Blog from "./Components/SidePanel/Blog.jsx";
 // Remove the duplicate Layout definition
 // const Layout = ({ children }) => {
 //   const location = useLocation();
@@ -43,45 +44,59 @@ const AppContent = () => {
       <Route
         path="/spam-detection"
         element={
-          <Layout className="w-full">
+          <Layout className="w-full" LinkofImg="https://lottie.host/9d712c6b-5413-486e-bc5d-1477d2b061f0/HUwsT0dsuC.lottie"
+>
             <Spam />
-          </Layout>}/>
-          <Route
-          path="/empty"
-          element={
-            <Layout className="w-full">
-              <Empty />
-            </Layout>}/>
+          </Layout>} />
+      <Route
+        path="/empty"
+        element={
+          <Layout className="w-full">
+            <Empty />
+          </Layout>} />
 
-            <Route
-          path="/cont-opt"
-          element={
-            <Layout className="w-full">
-              <ContentOpt />
-            </Layout>}/>
-        <Route
+      <Route
+        path="/cont-opt"
+        element={
+          <Layout className="w-full"  LinkofImg="https://lottie.host/aada9a93-1929-4ad4-bb41-3883b6f8021e/1Us2bN6bnA.lottie">
+            <ContentOpt
+/>
+          </Layout>} />
+      {/* home: "",
+    about: "", */}
+      <Route
         path="/contact"
         element={
-          <Layout className="w-full">
+          <Layout className="w-full" LinkofImg="https://lottie.host/9e9fb678-0d62-4fa2-96a0-4f93e6f47e8c/XRezMD1ZeM.lottie">
             <ContactForm />
-          
-            </Layout>}/>  
-          
-            <Route
+
+          </Layout>} />
+
+      <Route
         path="/Audit"
         element={
-          <Layout className="w-full">
+          <Layout className="w-full" LinkofImg="https://lottie.host/eebc029a-c709-44e5-866a-d0e04143118e/AzzblQE4Uo.lottie"
+ >
             <AuditPage />
-          </Layout>}/>
-     
+          </Layout>} />
+          <Route
+        path="/Blog"
+        element={
+          <Layout className="w-full" LinkofImg="https://lottie.host/75aeb228-1d12-4623-a206-f20319f8a680/KYWA7g98T2.lottie"
+
+ >
+            <Blog />
+          </Layout>} />
       {/* <Route path="/" element={<LandingPage />} /> */}
       <Route
         path="*"
         element={
           <Layout className="w-full">
             <Routes>
-             
-              <Route path="/" element={<KeywordData />} />
+
+              <Route
+               path="/" element={
+                <KeywordData LinkofImg="https://lottie.host/8695e13a-7d68-4db9-a3d2-a534947507d1/AcbU5EoJwW.lottie" />} />
               {/* Add other routes here */}
             </Routes>
           </Layout>

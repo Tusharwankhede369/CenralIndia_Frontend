@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white w-full px-8 md:px-auto">
+      <nav className="bg-white w-full px-8 md:px-auto mb-10">
         <div className="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
           <div className="flex items-center flex-shrink-0 text-gray-700 order-1 md:order-none md:mr-6 mx-auto md:mx-0">
             <svg
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Homepage</NavLink>
               </li>
               <li className="md:px-4 md:py-2">
-                <NavLink to="/empty" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Blog</NavLink>
+                <NavLink to="/Blog" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Blog</NavLink>
               </li>
               <li className="md:px-4 md:py-2">
                 <NavLink to="/empty" className={({ isActive }) => isActive ? "text-orange-500" : "text-gray-500 hover:text-gray-400"}>Forum</NavLink>
